@@ -5,6 +5,10 @@ body{
     color: #eee;
     font-family: Poppins;
     font-size: 12px;
+    overflow: auto;
+}
+body::-webkit-scrollbar {
+    display: none;
 }
 a{
     text-decoration: none;
@@ -310,4 +314,11 @@ header a{
 .des{
     font-size: 20px;
     color: #A7BEAE;
+}
+#info{
+    font-size:medium;
+    width: 90vw;
+    height: 100vh;
+    overflow: hidden;
+    padding: 10px;
 }

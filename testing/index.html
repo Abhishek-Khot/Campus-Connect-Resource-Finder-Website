@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create an FAQ Page with Show and Hide Questions and Answers using jQuery</title>
+  
+  <!-- jQuery -->
+  <script type="text/javascript" src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <script>
+ $(document).ready(function() {
+ 
+    $('.faq_question').click(function() {
+ 
+        if ($(this).parent().is('.open')){
+            $(this).closest('.faq').find('.faq_answer_container').animate({'height':'0'},500);
+            $(this).closest('.faq').removeClass('open');
+ 
+            }else{
+                var newHeight =$(this).closest('.faq').find('.faq_answer').height() +'px';
+                $(this).closest('.faq').find('.faq_answer_container').animate({'height':newHeight},500);
+                $(this).closest('.faq').addClass('open');
+            }
+    });
+});
+</script>
+  
+<!-- CSS -->
+<style>
+ 
+/*FAQS*/
+body{
+    margin-left: 20px;
+    background-color: rgb(0, 0, 0);
+}
+.faq_question {
+    margin: 0px;
+    padding: 0px 0px 5px 0px;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+}
+ 
+.faq_answer_container {
+    height: 0px;
+    overflow: hidden;
+    padding: 0px;
+}
+.faq{
+    width: 190vh;
+    height: 100px;
+    background-color: rgb(236, 236, 116);
+    padding-left: 20px;
+}
+.faq_answer{
+    font-weight: 600;
+    font-size: large;
+}
+</style>
+  
+</head>
+  <body>
+
+   <!-- HTML -->
+   <div class="faq_container">
+    <br>
+    <div class="faq">
+       <div class="faq_question"><h2>1. What services do you offer?</h2></div>
+            <div class="faq_answer_container">
+               <div class="faq_answer">We provide a range of services, including listing and managing PG accommodations, offering meal plans through our mess services, and providing stationary essentials for students and working professionals.</div>
+            </div>        
+     </div>
+    <br>
+     <div class="faq">
+       <div class="faq_question"><h2>2. How can I find a PG near me?</h2></div>
+            <div class="faq_answer_container">
+               <div class="faq_answer">You can use our search feature on the homepage. Enter your location and preferences to view available PG options.</div>
+            </div>        
+     </div>
+    <br>
+     <div class="faq">
+       <div class="faq_question"><h2>3. Are the PG accommodations verified?</h2></div>
+            <div class="faq_answer_container">
+               <div class="faq_answer">Yes, all PGs listed on our site undergo a verification process to ensure safety and quality.</div>
+            </div>        
+     </div>
+    <br>
+     <div class="faq">
+       <div class="faq_question"><h2>4. What meal plans do you offer?</h2></div>
+            <div class="faq_answer_container">
+               <div class="faq_answer">We offer flexible meal plans, including vegetarian, non-vegetarian, and mixed options, tailored to meet different dietary needs.</div>
+            </div>        
+     </div>
+    <br>
+     <div class="faq">
+       <div class="faq_question"><h2>5. How do I sign up for a meal plan?</h2></div>
+            <div class="faq_answer_container">
+               <div class="faq_answer">You can sign up for a meal plan through our website. Select your preferred plan and fill out the necessary details.</div>
+            </div>        
+     </div>
+    <br>
+     <div class="faq">
+       <div class="faq_question"><h2>6. Who do I contact for support?</h2></div>
+            <div class="faq_answer_container">
+               <div class="faq_answer">For any inquiries or support, please reach out to our customer service team via the contact form on our website or call our helpline.</div>
+            </div>        
+     </div>
+  </div>
+
+ </body>
+</html>
