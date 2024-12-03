@@ -107,6 +107,65 @@ body{
             </div>        
      </div>
   </div>
+  <script>
+    // Predefined options and password
+const predefinedOptions = [
+"Narayan Boys PG", "Balaji Boys PG ", "Anand Boys PG", "OM Boys PG", "MSM Boys PG", "Trisha enclave Boys PG", "Oneness Boys PG", "Patil Boys PG","Mandakini Boys PG","Boys PG"];
+const predefinedPassword = "12345"; // Change to your desired password
 
+// DOM Elements
+const searchBox = document.getElementById('searchBox');
+const passwordBox = document.getElementById('passwordBox');
+const suggestionsBox = document.getElementById('suggestionsBox');
+const pgButton = document.getElementById('pgButton');
+const errorMessage = document.getElementById('errorMessage');
+
+// Event listener for search input
+searchBox.addEventListener('input', () => {
+  const query = searchBox.value.toLowerCase();
+  suggestionsBox.innerHTML = ''; // Clear previous suggestions
+
+  if (query) {
+    const filteredOptions = predefinedOptions.filter(option =>
+      option.toLowerCase().includes(query)
+    );
+
+    filteredOptions.forEach(option => {
+      const suggestionItem = document.createElement('div');
+      suggestionItem.className = 'suggestion-item';
+      suggestionItem.textContent = option;
+      suggestionItem.addEventListener('click', () => {
+        searchBox.value = option; // Set selected value in the input
+        suggestionsBox.innerHTML = ''; // Clear suggestions
+      });
+      suggestionsBox.appendChild(suggestionItem);
+    });
+  }
+});
+
+// Hide suggestions when clicking outside
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.search-container')) {
+    suggestionsBox.innerHTML = '';
+  }
+});
+
+// Event listener for button click
+pgButton.addEventListener('click', () => {
+  const password = passwordBox.value;
+  if (password === predefinedPassword) {
+    window.location.href = "https://example.com"; // Replace with your target URL
+  } else {
+    pgButton.style.backgroundColor = 'red'; // Change button color to red
+  }
+});
+
+// Clear error message and reset button color on input
+passwordBox.addEventListener('input', () => {
+  errorMessage.textContent = '';
+  pgButton.style.backgroundColor = '#007bff'; // Reset button color to default
+});
+
+  </script>
  </body>
 </html>

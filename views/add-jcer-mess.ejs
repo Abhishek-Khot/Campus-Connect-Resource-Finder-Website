@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Connect</title>
+    <link rel="icon" href="https://qph.cf2.quoracdn.net/main-qimg-c5f5739457afba5604fa49ec261d6303" type="image/x-icon">
+  <style>
+    /* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #e3f2fd;
+  color: #333;
+}
+
+h2 {
+  text-align: center;
+  color: #0078d7;
+  margin-bottom: 20px;
+}
+
+/* Form Styling */
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Layout for Form Fields */
+.input-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.input-row label {
+  flex: 0 0 150px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.input-row input,
+.input-row textarea {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  width: calc(100% - 160px);
+}
+
+.input-row textarea {
+  resize: vertical;
+  height: 80px;
+}
+
+.input-row input[type="file"] {
+  padding: 3px;
+  font-size: 14px;
+}
+
+button.pg-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.pg-button:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+button.pg-button:active {
+  transform: translateY(0);
+  background-color: #1e7e34;
+}
+
+/* Error Message Styling */
+#errorMessage {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Accessibility and Focus */
+input:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 120, 215, 0.5);
+}
+
+/* Space for the header */
+.space {
+  height: 20px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <div class="space"></div>
+    <h2>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Add Mess</h2>
+      <form action="/home/jcer/mess/add" method="POST" enctype="multipart/form-data">
+      <!-- Mess ID -->
+  
+      <!-- Mess Name -->
+      <div class="input-row">
+        <label for="mess-name">Mess Name:</label>
+        <input type="text" id="mess-name" name="messName" placeholder="Enter Mess Name" required>      </div>
+  
+      <!-- Mess Image -->
+      <div class="input-row">
+        <label for="mess-image">Mess Image:</label>
+        <input type="file" id="mess-image" name="messImage" accept="image/*" required>      </div>
+  
+      <!-- Timings -->
+      <div class="input-row">
+        <label for="timing">Timings:</label>
+        <input type="text" id="timing" name="timings" placeholder="Enter Mess Timings" required>      </div>
+  
+      <!-- Daily Special -->
+      <div class="input-row">
+        <label for="special">Special Dish:</label>
+        <input type="text" id="special" name="dailySpecial" placeholder="Enter Today's Special Dish" required>      </div>
+  
+     
+  
+      <!-- Menu Selection -->
+      <h2>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Choose Menu</h2>
+      <div class="input-row">
+        <label for="menu1">Paneer Butter Masala:</label>
+        <input type="checkbox" id="menu1" name="menu1" value="Paneer Butter Masala">
+      </div>
+      <div class="input-row">
+        <label for="menu2">Dal Makhani:</label>
+        <input type="checkbox" id="menu2" name="menu2" value="Dal Makhani">
+      </div>
+      <div class="input-row">
+        <label for="menu3">Chole Bhature:</label>
+        <input type="checkbox" id="menu3" name="menu3" value="Chole Bhature">
+      </div>
+      <div class="input-row">
+        <label for="menu4">Butter Naan:</label>
+        <input type="checkbox" id="menu4" name="menu4" value="Butter Naan">
+      </div>
+      <div class="input-row">
+        <label for="menu5">Fried Rice:</label>
+        <input type="checkbox" id="menu5" name="menu5" value="Fried Rice">
+      </div>
+      <div class="input-row">
+        <label for="menu6">Veg Biryani:</label>
+        <input type="checkbox" id="menu6" name="menu6" value="Veg Biryani">
+      </div>
+      <div class="input-row">
+        <label for="menu7">Paneer Tikka:</label>
+        <input type="checkbox" id="menu7" name="menu7" value="Paneer Tikka">
+      </div>
+      <div class="input-row">
+        <label for="menu8">Fruit Salad:</label>
+        <input type="checkbox" id="menu8" name="menu8" value="Fruit Salad">
+      </div>
+  
+      <button type="submit" class="pg-button">Submit</button>
+    </form>
+  </div>
+  
+
+</body>
+</html>

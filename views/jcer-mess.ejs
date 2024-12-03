@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Connect</title>
+    <link rel="icon" href="https://qph.cf2.quoracdn.net/main-qimg-c5f5739457afba5604fa49ec261d6303" type="image/x-icon">
+    <style>
+      /* General Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #e3f2fd;
+  color: #333;
+}
+
+/* Cards Container Styling */
+/* Cards Container Styling */
+#cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Even spacing between cards */
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Individual Mess Card Styling */
+.mess-card-student {
+  flex: 1 1 calc(33.33% - 40px); /* 33.33% width for three cards in a row, minus gap adjustment */
+  max-width: 350px; /* Ensure cards don’t exceed a specific width */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  margin-bottom: 40px;
+  margin-left: 60px;
+}
+
+.mess-card-student:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Image Styling */
+.mess-image-student {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.mess-image-student:hover {
+  box-shadow: 2px 2px 5px blue;
+}
+
+/* Mess Details Section */
+.mess-details-student {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mess-name-student {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.mess-timings-student,
+.mess-special {
+  font-size: 16px;
+  color: #555;
+}
+
+.mess-timings-student {
+  font-weight: bold;
+  color: #0078d7;
+}
+
+.mess-special {
+  color: #f39c12;
+  font-weight: bold;
+}
+
+/* Thumbs-Up Section */
+.thumbs-up {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.thumb-btn {
+  background-color: #0078d7;
+  color: #fff;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.thumb-btn:hover {
+  background-color: #0056b3;
+}
+
+#thumb-count-mess {
+  font-size: 16px;
+  font-weight: bold;
+  color: #0078d7;
+}
+
+/* Buttons Section */
+.mess-buttons-student {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.btn-student {
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  background-color: #28a745;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex: 1;
+  text-align: center;
+}
+
+.btn-student:hover {
+  background-color: #218838;
+}
+
+.see-details-student {
+  background-color: #0078d7;
+}
+
+.see-details-student:hover {
+  background-color: #0056b3;
+}
+
+.add-menu-student {
+  background-color: #f39c12;
+}
+
+.add-menu-student:hover {
+  background-color: #e67e22;
+}
+.add-btn {
+  display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-btn:hover {
+  background-color: #218838; /* Darker green on hover */
+  transform: translateY(-2px); /* Slight lift */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+}
+
+.add-btn:active {
+  transform: translateY(0); /* Return to original position on click */
+  background-color: #1e7e34; /* Slightly darker green */
+}
+
+.add-btn:focus {
+  outline: none; /* Remove focus outline */
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5); /* Green outline for accessibility */
+}
+.space{
+  width: 100vw;
+  height: 80px;
+}
+h1{
+  text-align: center;
+    margin-top: 20px;
+    color: #0078d7;
+}
+    </style>
+  </head>
+  <body>
+    <h1>Available Mess Services</h1>
+    <div class="space">
+      <button class="add-btn" onclick="goToNextPage()">Add Mess</button>
+    </div>
+    <div id="cards-container">
+      <% messData.forEach(mess => { %>
+      <div class="mess-card-student" id="mess<%= mess.MessID %>">
+        <img
+          src="<%= mess.MessImage %>"
+          alt="Mess Image"
+          class="mess-image-student"
+        />
+        <div class="mess-details-student">
+          <h2 class="mess-name-student"><%= mess.MessName %></h2>
+          <p class="mess-timings-student">🍳 Timings: <%= mess.Timings %></p>
+          <a href="https://www.animatedimages.org/cat-lines-562.htm"><img src="https://www.animatedimages.org/data/media/562/animated-line-image-0379.gif" border="0" alt="animated-line-image-0379" width="300px" /></a>
+          <p class="mess-special">🎉 Special Today: <%= mess.DailySpecial %></p>
+          <a href="https://www.animatedimages.org/cat-lines-562.htm"><img src="https://www.animatedimages.org/data/media/562/animated-line-image-0379.gif" border="0" alt="animated-line-image-0379" width="300px" /></a>
+
+          <div class="thumbs-up">
+            <button
+              class="thumb-btn"
+              onclick="increaseThumbsUp('mess<%= mess.MessID %>')"
+            >
+              👍
+            </button>
+            <span id="thumb-count-mess<%= mess.MessID %>"
+              ><%= mess.Likes %></span
+            >
+            Likes
+          </div>
+
+          <div class="mess-buttons-student">
+            <!-- Example button in the list of messes -->
+            <button
+              class="btn-student see-details-student"
+              onclick="window.location.href='/home/jcer/mess/see-more/<%= mess.MessID %>'"
+            >
+              🔍 See Menu
+            </button>
+
+            <!-- Show the button to Add/Edit Menu -->
+            <button
+              class="btn-student add-menu-student"
+              onclick="window.location.href='/home/jcer/mess/edit-menu/<%= mess.MessID %>'"
+            >
+              📋 Add Menu
+            </button>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+
+    <script>
+      let thumbsUpCounts = {}; // Store thumbs up count for each mess
+
+      function increaseThumbsUp(messId) {
+        // Get the current like count from the displayed element
+        var thumbCountElement = document.getElementById(
+          "thumb-count-" + messId
+        );
+        var currentLikes = parseInt(thumbCountElement.innerText);
+
+        // Increment the like count
+        thumbCountElement.innerText = currentLikes + 1;
+
+        // Update the local thumbsUpCounts object
+        thumbsUpCounts[messId] = currentLikes + 1;
+
+        // Send a POST request to the server to update likes in the database
+        fetch(`/home/jcer/mess/${messId}/like`, {
+          method: "POST",
+        })
+          .then((response) => {
+            if (!response.ok) {
+              console.error("Error updating likes in the database");
+            }
+            // After updating the database, re-sort the cards
+            sortCards();
+          })
+          .catch((error) => {
+            console.error("Error sending like update request:", error);
+          });
+      }
+
+      // Sort the cards based on the updated thumbs up count
+      function sortCards() {
+        const container = document.getElementById("cards-container");
+        const cards = Array.from(container.children);
+
+        // Sort the cards based on the thumbsUpCounts
+        cards.sort((a, b) => {
+          const aId = a.id;
+          const bId = b.id;
+
+          // If the thumbsUpCounts is undefined, treat it as 0 (for cards that haven't been liked yet)
+          return (thumbsUpCounts[bId] || 0) - (thumbsUpCounts[aId] || 0);
+        });
+
+        // Re-append sorted cards to the container
+        cards.forEach((card) => container.appendChild(card));
+      }
+      function goToNextPage() {
+        window.location.href = "http://localhost:8080/home/jcer/mess/add"; // Replace with your desired URL
+      }
+    </script>
+  </body>
+</html>

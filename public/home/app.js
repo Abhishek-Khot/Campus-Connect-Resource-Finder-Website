@@ -47,3 +47,8 @@ function showSlider(type){
         next.click();
     }, timeAutoNext)
 }
+
+function redirectToResourceofjcer() {
+    window.location.href = 'http://localhost:8080/home/jcer';
+}
+  

@@ -322,3 +322,7 @@ header a{
     overflow: hidden;
     padding: 10px;
 }
+
+.buttons button{
+    cursor: pointer;
+}

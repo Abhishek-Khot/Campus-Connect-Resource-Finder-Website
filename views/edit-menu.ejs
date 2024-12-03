@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Connect</title>
+  <link rel="icon" href="https://qph.cf2.quoracdn.net/main-qimg-c5f5739457afba5604fa49ec261d6303" type="image/x-icon">
+  <style>
+    /* General Container Styling */
+    body{
+      background-color: #e3f2fd;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    /* Table Styling */
+    .form-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 16px;
+      text-align: left;
+    }
+
+    .form-table th, 
+    .form-table td {
+      padding: 12px;
+      border: none;
+    }
+
+    .form-table th {
+      text-align: left;
+      font-weight: bold;
+      color: #0078d7;
+    }
+
+    .form-table input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Button Styling */
+    button[type="submit"] {
+      padding: 12px 20px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #28a745;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #218838;
+    }
+
+    .btn-back {
+      display: inline-block;
+      text-align: center;
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #0078d7;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .btn-back:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Edit Menu for Mess ID: <%= messDetails.MessID %></h1>
+
+    <form action="/home/jcer/mess/save-menu/<%= messDetails.MessID %>" method="POST">
+      <table class="form-table">
+        <tr>
+          <th>Menu 1:</th>
+          <td><input type="text" id="menu1" name="Menu1" value="<%= messDetails.Menu1 %>" required></td>
+        </tr>
+        <tr>
+          <th>Menu 2:</th>
+          <td><input type="text" id="menu2" name="Menu2" value="<%= messDetails.Menu2 %>" required></td>
+        </tr>
+        <tr>
+          <th>Menu 3:</th>
+          <td><input type="text" id="menu3" name="Menu3" value="<%= messDetails.Menu3 %>" required></td>
+        </tr>
+        <tr>
+          <th>Menu 4:</th>
+          <td><input type="text" id="menu4" name="Menu4" value="<%= messDetails.Menu4 %>" required></td>
+        </tr>
+        <tr>
+          <th>Menu 5:</th>
+          <td><input type="text" id="menu5" name="Menu5" value="<%= messDetails.Menu5 %>" required></td>
+        </tr>
+        <tr>
+          <th>Menu 6:</th>
+          <td><input type="text" id="menu6" name="Menu6" value="<%= messDetails.Menu6 %>" required></td>
+        </tr>
+        <tr>
+          <th>Menu 7:</th>
+          <td><input type="text" id="menu7" name="Menu7" value="<%= messDetails.Menu7 %>" required></td>
+        </tr>
+        <tr>
+          <th>Menu 8:</th>
+          <td><input type="text" id="menu8" name="Menu8" value="<%= messDetails.Menu8 %>" required></td>
+        </tr>
+      </table>
+      <button type="submit">Save Menu</button>
+    </form>
+
+    <a href="http://localhost:8080/home/jcer/mess" class="btn-back">Back to Home</a>
+  </div>
+</body>
+</html>

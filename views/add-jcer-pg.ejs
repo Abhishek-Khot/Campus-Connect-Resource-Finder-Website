@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Connect</title>
+  <link rel="icon" href="https://qph.cf2.quoracdn.net/main-qimg-c5f5739457afba5604fa49ec261d6303" type="image/x-icon">
+  <style>
+    /* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #e3f2fd;
+  color: #333;
+}
+
+h2 {
+  text-align: center;
+  color: #0078d7;
+  margin-bottom: 20px;
+}
+
+/* Form Styling */
+#pgForm {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Layout for Form Fields */
+.input-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.input-row label {
+  flex: 0 0 150px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.input-row input,
+.input-row textarea {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  width: calc(100% - 160px);
+}
+
+.input-row textarea {
+  resize: vertical;
+  height: 80px;
+}
+
+.input-row input[type="file"] {
+  padding: 3px;
+  font-size: 14px;
+}
+
+button.pg-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.pg-button:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+button.pg-button:active {
+  transform: translateY(0);
+  background-color: #1e7e34;
+}
+
+/* Error Message Styling */
+#errorMessage {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Accessibility and Focus */
+input:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 120, 215, 0.5);
+}
+
+    
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <form action="http://localhost:8080/home/jcer/rooms" method="POST" id="pgForm" enctype="multipart/form-data">
+      <h2> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ADD PG Details</h2>
+      <div class="input-row">
+        <label for="name">PG Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter PG name" required>
+      </div>
+      <div class="input-row">
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" placeholder="Enter address" required>
+      </div>
+      <div class="input-row">
+        <label for="cost">Cost</label>
+        <input type="number" id="cost" name="cost" placeholder="Enter cost" required>
+      </div>
+      <div class="input-row">
+        <label for="facilities">Facilities</label>
+        <textarea id="facilities" name="facilities" placeholder="Enter facilities" required></textarea>
+      </div>
+      <div class="input-row">
+        <label for="dist">Distance</label>
+        <input type="number" id="dist" name="dist" placeholder="Enter distance" required>
+      </div>
+      <div class="input-row">
+        <label for="dist">availrooms</label>
+        <input type="number" id="availrooms" name="availrooms" placeholder="Enter available rooms" required>
+      </div>
+      <div class="input-row">
+        <label for="image">Image</label>
+        <input type="file" id="image" name="image" required>
+      </div>
+
+      <div class="input-row">
+        <label for="password">Secret Key</label>
+        <input type="password" id="password" name="password" placeholder="Enter secret key" required>
+      </div>
+      <button type="submit" class="pg-button">Add PG</button>
+      <div class="error-message" id="errorMessage"></div>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('pgForm');
+    const secretKey = "12345"; // Replace with your actual secret key
+
+    form.addEventListener('submit', function(e) {
+      const passwordField = document.getElementById('password');
+      const errorMessage = document.getElementById('errorMessage');
+
+      // Validate secret key
+      if (passwordField.value !== secretKey) {
+        e.preventDefault();
+        errorMessage.textContent = "Invalid secret key. Please try again.";
+      }
+    });
+  </script>
+</body>
+</html>

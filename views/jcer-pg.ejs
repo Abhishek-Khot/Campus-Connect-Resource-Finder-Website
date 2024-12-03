@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Connect</title>
+    <link rel="icon" href="https://qph.cf2.quoracdn.net/main-qimg-c5f5739457afba5604fa49ec261d6303" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        /* General Body Styling */
+       /* General Body Styling */
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e3f2fd;
+    color: #333;
+    display: flex; /* Use flex to arrange elements side by side */
+    min-height: 100vh;
+    padding-top: 20px;
+}
+
+/* Sidebar Styling (Sort Buttons) */
+.sort-buttons {
+    position: fixed; /* Fixed position on the left */
+    top: 10px; /* Align with the top of the viewport */
+    left: 10px;
+    width: 20%; /* Sidebar occupies 30% of the screen width */
+    height: 90vh; /* Full height */
+    
+    border-radius: 5px;
+    background-color: #e1f5fe; /* Soft Pale Blue */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Card Container (Content Area) */
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px;
+    padding-right: 40px;
+    width: 90%; /* Occupy 70% of the remaining space */
+    margin-left: 30%; /* Push content to the right, leaving space for the sidebar */
+    background-color: #d1e7f3; /* Muted Blue-Green */
+    border-radius: 5px;
+}
+
+/* Individual Card Styling */
+.card {
+    display: flex;
+    width: 60vw;
+    height: 60vh;
+    background-color: #bbdefb; /* Light Blue */
+    border: 0.1px solid #1c0808;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 1;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: rgb(71, 71, 255);
+}
+
+/* Card Image Styling */
+.card-img {
+    width: 22em;
+    height: 25em;
+    object-fit: cover;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.card-img:hover{
+    box-shadow: 2px 2px 5px black;
+}
+
+/* Card Content Styling */
+.card-content {
+    padding: 15px;
+    flex: 1;
+
+}
+
+.card-title {
+    font-size: 30px;
+    font-weight: bolder;
+    
+}
+
+.card-location,
+.card-price {
+    font-size: 15px;
+    color: black;
+
+
+}
+.card-location{
+    font-size: 25px;
+    color: blue;
+    font-weight: bold;
+}
+.card-amenities {
+    font-size: 15px;
+    color: black;
+    margin-top: 10px;
+}
+
+/* Ratings and Thumbs-Up Button */
+.thumb-rating {
+    display: flex;
+    align-items: right;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.thumb-btn {
+    background-color: #f5f5f5;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-left: 70%;
+    position: relative;
+    bottom: 225px;
+    width: 50px;
+    background-color: #0078d7;
+    color: black;
+}
+
+.thumb-btn:hover {
+    background-color: #538bba;
+    color: white;
+}
+
+.rating-value {
+    position: relative;
+    bottom: 220px;
+    color:#0078d7;
+    font-size: large;
+    font-weight: bold;
+}
+
+.register{
+    display: flex;
+    align-items: right;
+}
+    
+.rating{
+    position: relative;
+    bottom: 220px;
+    color:#0078d7;
+    font-size: large;
+    font-weight: bold;
+}
+.stars{
+    width: 100px;
+    height: 20px;
+    position: relative;
+}
+    </style>
+    
+</head>
+<body>
+    <div class="sort-buttons">
+        <h3>Select Filter</h3>
+        <button id="redirectButton" class="redirect-btn">Add PG</button>
+        <p>
+
+        </p>
+        <button class="sort-btn" id="sortByDistance">Sort by Distance</button>
+        <p>
+
+        </p>
+        <button class="sort-btn" id="sortByCost">Sort by Cost</button>
+        <br>
+        <h3>Suggested For You</h3>
+        <form id="amenities-form">
+            <label>
+                <input type="checkbox" name="amenity" value="Early Bird Deals"> Early Bird Deals
+            </label><br>
+            <label>
+                <input type="checkbox" name="amenity" value="Free Cancellation"> Free Cancellation (11)
+            </label><br>
+            <label>
+                <input type="checkbox" name="amenity" value="Breakfast Included"> Breakfast Included (5)
+            </label><br>
+            <label>
+                <input type="checkbox" name="amenity" value="Breakfast + Lunch/Dinner Included"> Breakfast + Lunch/Dinner Included (1)
+            </label><br>
+            <label>
+                <input type="checkbox" name="amenity" value="All Meals Included"> All Meals Included
+            </label><br>
+            <button type="submit" class="apply-btn">Apply Filters</button>
+        </form>
+
+        <h3>Popular Locations</h3>
+    <form id="location-form">
+        <label>
+            <input type="checkbox" name="locality" value="Belgaum Airport (IXG)"> Belgaum Airport (IXG)
+        </label><br>
+        <label>
+            <input type="checkbox" name="locality" value="Nehru Nagar"> Nehru Nagar
+        </label><br>
+        <label>
+            <input type="checkbox" name="locality" value="Raviwar Peth"> Raviwar Peth
+        </label><br>
+        <label>
+            <input type="checkbox" name="locality" value="Tilakwadi"> Tilakwadi
+        </label><br>
+        <label>
+            <input type="checkbox" name="locality" value="Hindu Nagar"> Hindu Nagar
+        </label><br>
+        <label>
+            <input type="checkbox" name="locality" value="Sadashiv Nagar"> Sadashiv Nagar
+        </label><br>
+        <label>
+            <input type="checkbox" name="locality" value="Ayodhya Nagar"> Ayodhya Nagar
+        </label><br>
+        <label>
+            <input type="checkbox" name="locality" value="Azad Nagar"> Azad Nagar
+        </label><br>
+        <label>
+            <input type="checkbox" name="locality" value="Shahapur"> Shahapur
+        </label><br>
+        <button type="submit" class="apply-btn">Apply Filters</button>
+    </form>
+
+
+    </div>
+    <div class="card-container">
+        <h1>Showing Properties in Belgaum</h1>
+        <a href="https://www.animatedimages.org/cat-dividing-lines-134.htm"><img src="https://www.animatedimages.org/data/media/134/animated-dividing-line-image-0066.gif" border="0" alt="animated-dividing-line-image-0066" width="470px"style="position:relative;bottom:30px;"/></a>
+        <% pgList.forEach(pg => { %>
+          <div class="card" data-rating="<%= pg.rating %>" data-distance="<%= pg.dist %>" data-cost="<%= pg.cost %>">
+            <img src= <%=pg.image  %> alt="<%= pg.name %> Image" class="card-img">
+            <div class="card-content">
+                <div class="stars">
+                    <h1> &starf;&starf;&starf;&star;&star;</h1>
+                 </div>
+              <h3 class="card-title"><%= pg.name %></h3>
+              <p class="card-location"><%= pg.address %></p>
+              <p class="card-price">✅ Cost: ₹<%= pg.cost %>/month</p>
+              <p class="card-price">✅ distance: <%= pg.dist %> km</p>
+              <p class="card-price"> ✅ Available Rooms: <%= pg.availrooms %></p> 
+              <div class="card-amenities">
+                ✅ Facilities: <%= pg.facilities %>
+              </div>
+              <div class="thumb-rating">
+                <button class="thumb-btn">&#8679;</button>
+                <span class="rating-value"><%= pg.rating %></span><span class="rating">Ratings</span>
+              </div class="register">
+              <button
+  id="payButton"
+  style="
+    background-color: #528ff0;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    width: 100%;
+    position:relative;
+    top: 20px;
+  "
+>
+  Pre-register
+</button>
+            </div>
+          </div>
+
+        <% }) %>
+      </div>
+
+    <script>
+        document.getElementById("payButton").onclick = function () {
+            window.open("https://pages.razorpay.com/pl_PQcp8Xf5D2Bbt0/view", "_blank");
+          };
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('redirectButton').addEventListener('click', () => {
+                window.location.href = 'http://localhost:8080/home/jcer/rooms/add';
+            });
+            
+            const cardContainer = document.querySelector('.card-container');
+        
+            // Add event listener to all thumbs-up buttons
+            const thumbButtons = document.querySelectorAll('.thumb-btn');
+            thumbButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const ratingDiv = button.parentElement;
+                    const ratingValue = ratingDiv.querySelector('.rating-value');
+                    const card = ratingDiv.closest('.card');
+        
+                    // Increment the rating
+                    let currentRating = parseInt(ratingValue.textContent);
+                    currentRating += 1;
+                    ratingValue.textContent = currentRating;
+        
+                    // Update the card's data-rating attribute
+                    card.setAttribute('data-rating', currentRating);
+        
+                    // Automatically sort the cards by rating
+                    sortCards();
+                });
+            });
+        
+            // Function to sort cards by rating
+            function sortCards() {
+                const cards = Array.from(cardContainer.children);
+                
+                // Hide all cards (fade out)
+                cards.forEach(card => {
+                    card.style.opacity = '0';
+                });
+        
+                // Wait for the fade-out effect to complete before sorting
+                setTimeout(() => {
+                    // Sort cards by data-rating in descending order
+                    cards.sort((a, b) => {
+                        const ratingA = parseInt(a.getAttribute('data-rating'));
+                        const ratingB = parseInt(b.getAttribute('data-rating'));
+                        return ratingB - ratingA;
+                    });
+        
+                    // Append sorted cards back to the container
+                    cards.forEach(card => cardContainer.appendChild(card));
+        
+                    // Show all cards again (fade in)
+                    cards.forEach(card => {
+                        card.style.opacity = '1';
+                    });
+                }, 300); // 300ms is the duration of the fade-out transition
+            }
+        
+            // Sort by distance
+            document.getElementById('sortByDistance').addEventListener('click', () => {
+                const cards = Array.from(cardContainer.children);
+                
+                // Hide all cards (fade out)
+                cards.forEach(card => {
+                    card.style.opacity = '0';
+                });
+        
+                setTimeout(() => {
+                    cards.sort((a, b) => {
+                        const distA = parseFloat(a.getAttribute('data-distance'));
+                        const distB = parseFloat(b.getAttribute('data-distance'));
+                        return distA - distB;
+                    });
+                    cards.forEach(card => cardContainer.appendChild(card));
+        
+                    // Show all cards again (fade in)
+                    cards.forEach(card => {
+                        card.style.opacity = '1';
+                    });
+                }, 300);
+            });
+        
+            // Sort by cost
+            document.getElementById('sortByCost').addEventListener('click', () => {
+                const cards = Array.from(cardContainer.children);
+                
+                // Hide all cards (fade out)
+                cards.forEach(card => {
+                    card.style.opacity = '0';
+                });
+        
+                setTimeout(() => {
+                    cards.sort((a, b) => {
+                        const costA = parseInt(a.getAttribute('data-cost'));
+                        const costB = parseInt(b.getAttribute('data-cost'));
+                        return costA - costB;
+                    });
+                    cards.forEach(card => cardContainer.appendChild(card));
+        
+                    // Show all cards again (fade in)
+                    cards.forEach(card => {
+                        card.style.opacity = '1';
+                    });
+                }, 300);
+            });
+        });
+        
+    </script>
+</body>
+</html>

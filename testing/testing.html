@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospitals Around Belagavi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            color: #2c3e50;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            gap: 20px;
+        
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            margin: 30px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-content h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hospitals Around Belagavi</h1>
+    <div class="container">
+
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=Hospital+1" alt="Hospital 1">
+            <div class="card-content">
+                <h2>KLE Society's Dr. Prabhakar Kore Hospital</h2>
+                <p>Address: Nehru Nagar, Belagavi</p>
+                <p>Contact: +91 9876543210</p>
+                <p>Rating: 4.7/5</p>
+                <button onclick="window.location.href='http://localhost:8080/book-bed/hospital1'">Book Bed</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=Hospital+2" alt="Hospital 2">
+            <div class="card-content">
+                <h2>Shree Hospital</h2>
+                <p>Address: Tilakwadi, Belagavi</p>
+                <p>Contact: +91 9123456789</p>
+                <p>Rating: 4.5/5</p>
+                <button onclick="window.location.href='http://localhost:8080/book-bed/hospital2'">Book Bed</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=Hospital+3" alt="Hospital 3">
+            <div class="card-content">
+                <h2>City Hospital</h2>
+                <p>Address: RPD Road, Belagavi</p>
+                <p>Contact: +91 9234567890</p>
+                <p>Rating: 4.6/5</p>
+                <button onclick="window.location.href='http://localhost:8080/book-bed/hospital3'">Book Bed</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=Hospital+4" alt="Hospital 4">
+            <div class="card-content">
+                <h2>Sanjeevani Hospital</h2>
+                <p>Address: Camp, Belagavi</p>
+                <p>Contact: +91 9345678901</p>
+                <p>Rating: 4.3/5</p>
+                <button onclick="window.location.href='http://localhost:8080/book-bed/hospital4'">Book Bed</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=Hospital+5" alt="Hospital 5">
+            <div class="card-content">
+                <h2>Vijay Hospital</h2>
+                <p>Address: Ganapati Nagar, Belagavi</p>
+                <p>Contact: +91 9456789012</p>
+                <p>Rating: 4.4/5</p>
+                <button onclick="window.location.href='http://localhost:8080/book-bed/hospital5'">Book Bed</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=Hospital+6" alt="Hospital 6">
+            <div class="card-content">
+                <h2>Bharati Hospital</h2>
+                <p>Address: Shivaji Road, Belagavi</p>
+                <p>Contact: +91 9765432101</p>
+                <p>Rating: 4.5/5</p>
+                <button onclick="window.location.href='http://localhost:8080/book-bed/hospital6'">Book Bed</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=Hospital+7" alt="Hospital 7">
+            <div class="card-content">
+                <h2>KIMS</h2>
+                <p>Address: Vidyanagar, Hubli</p>
+                <p>Contact: +91 9988776655</p>
+                <p>Rating: 4.6/5</p>
+                <button onclick="window.location.href='http://localhost:8080/book-bed/hospital7'">Book Bed</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=Hospital+8" alt="Hospital 8">
+            <div class="card-content">
+                <h2>Siddhivinayak Hospital</h2>
+                <p>Address: Hanuman Nagar, Belagavi</p>
+                <p>Contact: +91 9871234567</p>
+                <p>Rating: 4.4/5</p>
+                <button onclick="window.location.href='http://localhost:8080/book-bed/hospital8'">Book Bed</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=Hospital+9" alt="Hospital 9">
+            <div class="card-content">
+                <h2>Shree Gurudev Hospital</h2>
+                <p>Address: Khanapur Road, Belagavi</p>
+                <p>Contact: +91 8765432109</p>
+                <p>Rating: 4.7/5</p>
+                <button onclick="window.location.href='http://localhost:8080/book-bed/hospital9'">Book Bed</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/400x200?text=Hospital+10" alt="Hospital 10">
+            <div class="card-content">
+                <h2>Sanjeevani Multispeciality Hospital</h2>
+                <p>Address: Udyambag, Belagavi</p>
+                <p>Contact: +91 7654321098</p>
+                <p>Rating: 4.8/5</p>
+                <button onclick="window.location.href='http://localhost:8080/book-bed/hospital10'">Book Bed</button>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

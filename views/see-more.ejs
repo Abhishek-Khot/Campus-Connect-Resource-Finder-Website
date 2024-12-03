@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Connect</title>
+    <link rel="icon" href="https://qph.cf2.quoracdn.net/main-qimg-c5f5739457afba5604fa49ec261d6303" type="image/x-icon">
+  <style>
+    /* General Container Styling */
+    body{
+      background-color: #e3f2fd;
+    }
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+  text-align: center;
+  color: #333;
+}
+
+/* Table Styling */
+.mess-details-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.mess-details-table th, 
+.mess-details-table td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
+}
+
+.mess-details-table th {
+  background-color: #0078d7;
+  color: #fff;
+  font-weight: bold;
+}
+
+.mess-details-table tr:nth-child(even) {
+  background-color: #f3f3f3;
+}
+
+.mess-details-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Back Button Styling */
+.btn-back {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #0078d7;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.btn-back:hover {
+  background-color: #0056b3;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Mess Details</h1>
+
+    <!-- Display mess details in a table -->
+    <div class="mess-info">
+      <h2>Mess Information for Mess ID: <%= messDetails.MessID %></h2>
+      <table class="mess-details-table">
+        <thead>
+          <tr>
+            <th>Menu Item</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Menu 1</td>
+            <td><%= messDetails.Menu1 %></td>
+          </tr>
+          <tr>
+            <td>Menu 2</td>
+            <td><%= messDetails.Menu2 %></td>
+          </tr>
+          <tr>
+            <td>Menu 3</td>
+            <td><%= messDetails.Menu3 %></td>
+          </tr>
+          <tr>
+            <td>Menu 4</td>
+            <td><%= messDetails.Menu4 %></td>
+          </tr>
+          <tr>
+            <td>Menu 5</td>
+            <td><%= messDetails.Menu5 %></td>
+          </tr>
+          <tr>
+            <td>Menu 6</td>
+            <td><%= messDetails.Menu6 %></td>
+          </tr>
+          <tr>
+            <td>Menu 7</td>
+            <td><%= messDetails.Menu7 %></td>
+          </tr>
+          <tr>
+            <td>Menu 8</td>
+            <td><%= messDetails.Menu8 %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <br>
+    <a href="http://localhost:8080/home/jcer/mess" class="btn-back">Back to Home</a>
+  </div>
+
+</body>
+</html>

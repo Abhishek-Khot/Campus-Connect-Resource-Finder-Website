@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Connect</title>
+  <link rel="icon" href="https://qph.cf2.quoracdn.net/main-qimg-c5f5739457afba5604fa49ec261d6303" type="image/x-icon">
+    <style>
+        *{
+            overflow: hidden;
+        }
+        /* Basic styles for the page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            background-color: #e3f2fd;
+            overflow: hidden;
+        }
+
+        /* Navigation Bar styles */
+        nav {
+            background-color: #2c3e50;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav .logo {
+            color: #ecf0f1;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            
+        }
+
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        nav a.active {
+            color: #f39c12;
+            font-weight: bold;
+        }
+
+        /* Marquee styles */
+        marquee {
+            background-color: #f4f4f4;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 80px; /* To avoid overlap with the fixed navbar */
+        }
+
+        /* Card Container */
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            overflow-y: auto;
+        }
+
+        /* Individual Card styles */
+        .card {
+            width: 100vw;
+            height: 70vh;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 50px; /* Space for the button at the bottom */
+            transition: background-color 0.3s ease;
+        }
+
+        .card:hover {
+            background-color: #f8f9fa; /* Light hover effect for cards */
+        }
+
+        .card h3 {
+            margin-top: 15px;
+            font-size: 28px;
+            color: #333;
+        }
+
+        .card p {
+            font-size: 20px;
+            color: #777;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .card button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 200px;
+        }
+
+        .card button:hover {
+            background-color: #555;
+        }
+
+        .card-image {
+            width: 80%;
+            max-width: 400px;
+            height: 60%;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover effect on images */
+        .card-image:hover {
+            transform: scale(1.05); /* Slight zoom-in effect */
+            border: 2px solid blue;
+        }
+
+        /* Smooth transition for page navigation */
+        .page {
+            display: none;
+            position: relative;
+        }
+
+        .page.active {
+            display: block;
+        }
+        .logo{
+            position: relative;
+            right: 300px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#" class="logo">JCER Hub</a>
+        <div>
+            <a href="#pg-card" class="nav-link">PGs</a>
+            <a href="#mess-card" class="nav-link">Mess</a>
+            <a href="#stationary-card" class="nav-link">Stationary</a>
+            <a href="#hospital-card" class="nav-link">Hospitals</a>
+        </div>
+    </nav>
+
+    <!-- Marquee for heading -->
+    <marquee behavior="alternate">
+        <h1>Explore Resources Around JCER</h1>
+    </marquee>
+
+    <!-- Card Container for different resources -->
+    <div class="card-container">
+
+        <!-- PG Card -->
+        <div class="card page" id="pg-card">
+            <img src="https://ideogram.ai/assets/image/lossless/response/w0zpH_TOT7uHz-rKIfaU8Q" alt="PG Image" class="card-image">
+            <h3>Student PGs</h3>
+            <p>Looking for a place to stay? Find the best PGs around JCER!</p>
+            <!-- <p>We provide a variety of PGs for students with affordable prices and comfortable living conditions. Get the best deals for your stay near JCER.</p> -->
+            <button>Visit PGs</button>
+        </div>
+        
+        <!-- Mess Card -->
+        <div class="card page" id="mess-card">
+            <img src="https://ideogram.ai/assets/image/lossless/response/z-cDsv6cQWuYMCGBdEiK5w" alt="Mess Image" class="card-image">
+            <h3>Mess Options</h3>
+            <p>Hungry? Explore mess facilities for delicious and affordable meals.</p>
+            <!-- <p>Various mess options are available that cater to different tastes, with hygienic and nutritious meals served at budget-friendly prices.</p> -->
+            <button>Visit Mess</button>
+        </div>
+        
+        <!-- Stationary Card -->
+        <div class="card page" id="stationary-card">
+            <img src="https://ideogram.ai/assets/image/lossless/response/HrVMrkLoSFivNhm5FtPYrg" alt="Stationary Image" class="card-image">
+            <h3>Stationary Needs</h3>
+            <p>Get all your stationery supplies for study and work. Convenience at your doorstep.</p>
+            <!-- <p>We offer a wide variety of stationery products, including notebooks, pens, and other essentials for students. Get everything you need in one place!</p> -->
+            <button>Visit Stationary</button>
+        </div>
+        
+        <!-- Hospital Card -->
+        <div class="card page" id="hospital-card">
+            <img src="https://ideogram.ai/assets/image/lossless/response/SkE7gj9DRP6gK1nhlCSSUw" alt="Hospital Image" class="card-image">
+            <h3>Nearby Hospitals</h3>
+            <p>Find the best healthcare facilities close to JCER for your well-being.</p>
+            <!-- <p>We provide a list of nearby hospitals offering emergency services, routine check-ups, and specialized care to meet your medical needs.</p> -->
+            <button>Visit Hospitals</button>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle button redirection and navigation between cards -->
+    <script>
+        // Attach event listeners to buttons for redirection
+        document.getElementById('pg-card').querySelector('button').addEventListener('click', function() {
+            window.location.href = 'http://localhost:8080/home/jcer/rooms';
+        });
+
+        document.getElementById('mess-card').querySelector('button').addEventListener('click', function() {
+            window.location.href = 'http://localhost:8080/home/jcer/mess';
+        });
+
+        document.getElementById('stationary-card').querySelector('button').addEventListener('click', function() {
+            window.location.href = 'http://localhost:8080/home/jcer/station';
+        });
+
+        document.getElementById('hospital-card').querySelector('button').addEventListener('click', function() {
+            window.location.href = 'http://localhost:8080/home/jcer/hospital';
+        });
+
+        // Navigation and active page handling
+        const links = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
+        
+        links.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+
+                // Hide all pages
+                pages.forEach(page => page.classList.remove('active'));
+
+                // Show the target page
+                target.classList.add('active');
+                
+                // Update active link
+                links.forEach(navLink => navLink.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        // Show the first page by default
+        pages[0].classList.add('active');
+    </script>
+</body>
+
+</html>
