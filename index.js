@@ -31,9 +31,9 @@ const connection = mysql.createConnection({
   password: "forgot 123",
 });
 
-app.get("/", (req, res) => {
-  res.render("animation.ejs");
-});
+// app.get("/", (req, res) => {
+//   res.render("animation.ejs");
+// });
 
 app.get("/home", (req, res) => {
   res.render("home.ejs");

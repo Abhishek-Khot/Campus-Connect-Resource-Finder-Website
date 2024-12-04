@@ -247,8 +247,8 @@ body {
                  </div>
               <h3 class="card-title"><%= pg.name %></h3>
               <p class="card-location"><%= pg.address %></p>
-              <p class="card-price">✅ Cost: ₹<%= pg.cost %>/month</p>
-              <p class="card-price">✅ distance: <%= pg.dist %> km</p>
+              <p class="card-price">✅ Cost: ₹<b><%= pg.cost %></b>/month</p>
+              <p class="card-price">✅ distance: <b><%= pg.dist %></b> km</p>
               <p class="card-price"> ✅ Available Rooms: <%= pg.availrooms %></p> 
               <div class="card-amenities">
                 ✅ Facilities: <%= pg.facilities %>
@@ -289,8 +289,9 @@ body {
           };
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('redirectButton').addEventListener('click', () => {
-                window.location.href = 'http://localhost:8080/home/jcer/rooms/add';
+                window.open('http://localhost:8080/home/jcer/rooms/add', '_blank');  // Opens in a new tab
             });
+            
             
             const cardContainer = document.querySelector('.card-container');
         

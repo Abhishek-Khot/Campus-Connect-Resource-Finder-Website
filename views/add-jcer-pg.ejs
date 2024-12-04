@@ -155,17 +155,23 @@ button:focus {
   <script>
     const form = document.getElementById('pgForm');
     const secretKey = "12345"; // Replace with your actual secret key
-
+  
     form.addEventListener('submit', function(e) {
       const passwordField = document.getElementById('password');
       const errorMessage = document.getElementById('errorMessage');
-
+  
       // Validate secret key
       if (passwordField.value !== secretKey) {
         e.preventDefault();
         errorMessage.textContent = "Invalid secret key. Please try again.";
+      } else {
+        // If secret key is correct, submit the form and close the tab
+        setTimeout(function() {
+          window.close();
+        }, 1000); // Delay to ensure form submission completes
       }
     });
   </script>
+  
 </body>
 </html>

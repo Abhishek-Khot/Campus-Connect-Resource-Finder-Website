@@ -317,12 +317,34 @@ header a{
 }
 #info{
     font-size:medium;
-    width: 90vw;
-    height: 100vh;
-    overflow: hidden;
-    padding: 10px;
+    /* overflow: hidden; */
 }
 
 .buttons button{
     cursor: pointer;
+}
+
+#info video{
+    width: 100vw;
+    height: 100vh;
+}
+#info {
+    position: relative;
+    width: 100vw; /* Full viewport width */
+    height: 98vh; /* Full viewport height */
+    overflow: hidden; /* Prevents overflow of content */
+    padding: 10px;
+    background-color: white;
+}
+
+#video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers the video */
+    width: 100vw; /* Ensures the video stretches to full width */
+    height: 98vh; /* Ensures the video stretches to full height */
+    object-fit: cover; /* Ensures the video maintains aspect ratio and covers the area */
+    z-index: 1; /* Places the video behind other content */
+
 }
