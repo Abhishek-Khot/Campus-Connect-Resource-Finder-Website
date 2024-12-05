@@ -9,6 +9,7 @@ const multer = require("multer");
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(methodOverride("_method"));
+app.use(express.json()); // Add to handle JSON data
 app.use(express.urlencoded({ extended: true }));
 app.use('/storage', express.static(path.join(__dirname, 'storage')));
 
@@ -48,12 +49,73 @@ app.get("/home/about", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "home", "about", "index.html"));
 });
 
-app.get("/signup", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend2", "index.html"));
+app.get("/login", (req, res) => {
+  res.render("login.ejs"); // Ensure this has the forms for login and signup
 });
-app.get("/signup/error", (req, res) => {
-  res.render("errorOfLogin.ejs");
+
+// Handle the login functionality
+app.post("/login", (req, res) => {
+  const { username, password } = req.body;
+  console.log(username, password);
+  
+  const query = 'SELECT * FROM users WHERE username = ?';
+  connection.query(query, [username], (err, results) => {
+    if (err) {
+      console.error('Error querying database:', err);
+      return res.status(500).send('Server error');
+    }
+
+    if (results.length > 0) {
+      // User found, now check the password
+      const user = results[0];
+
+      if (password === user.password) {
+        return res.render("home.ejs");
+      } else {
+        return res.render("errorOfLogin.ejs");
+      }
+    } else {
+      return res.status(400).send('User does not exist');
+    }
+  });
 });
+
+
+// Handle the signup functionality
+app.post("/signup", (req, res) => {
+  const { username, email, password } = req.body;
+
+  // Check if user already exists
+  const query = 'SELECT * FROM users WHERE username = ?';
+  connection.query(query, [username], (err, results) => {
+    if (err) {
+      console.error('Error querying database:', err);
+      return res.status(500).send('Server error');
+    }
+
+    if (results.length > 0) {
+      return res.status(400).send('User already exists');
+    }
+
+    // Insert the new user into the database without hashing the password
+    const insertQuery = 'INSERT INTO users (username, email, password) VALUES (?, ?, ?)';
+    connection.query(insertQuery, [username, email, password], (err, result) => {
+      if (err) {
+        console.error('Error inserting data:', err);
+        return res.status(500).send('Error saving data.');
+      }
+
+      return res.render("login.ejs");
+    });
+  });
+});
+
+
+// app.get("/signup/error", (req, res) => {
+//   res.render("errorOfLogin.ejs");
+// });
+
+
 app.get("/res", (req, res) => {
   res.render("res.ejs");
 });
