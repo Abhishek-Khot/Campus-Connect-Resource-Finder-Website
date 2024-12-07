@@ -28,7 +28,7 @@
   - Users can sort PGs, mess options, and other resources based on cost, distance, and preferences.
 
 ## Technologies Used
-- **MERN Stack** (MongoDB, Express.js, React.js, Node.js)
+- **MERN Stack** (MySQL, Express.js, Node.js)
 - **Razorpay Payment Gateway** for secure payment processing
 
 ## Installation and Setup
